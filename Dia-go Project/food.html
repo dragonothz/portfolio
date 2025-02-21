@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Food</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: "tahoma";
+      }
+
+      nav {
+        margin: 0 auto;
+        width: 100%;
+        height: auto;
+        display: inline-block;
+        background: #b23a2d;
+      }
+
+      nav ul {
+        margin: 10;
+        padding: 0px;
+        list-style-type: none;
+        display: inline-block;
+      }
+
+      nav ul li {
+        position: relative;
+        margin: 0 0px 0 0;
+        display: inline-block;
+      }
+
+      li > a:after {
+        content: " >>";
+      }
+
+      li > a:only-child:after {
+        content: "";
+      }
+
+      nav ul li a {
+        padding: 20px;
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+      }
+
+      nav ul li a:hover {
+        opacity: 0.5;
+      }
+
+      nav ul li ul {
+        display: none;
+        position: absolute;
+        left: 0;
+        background: #d64747;
+        float: left;
+        padding: 12px 16px;
+      }
+
+      nav ul li ul li {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      nav ul li:hover ul {
+        display: block;
+      }
+
+      body {
+        background-color: #f8e9d9;
+      }
+
+      li {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      img {
+        width: 40%;
+        height: auto;
+      }
+
+      .images {
+        display: block;
+        text-align: center;
+        padding: 20px;
+      }
+
+      .dropdown-content {
+        position: relative;
+        margin: auto;
+        text-align: center;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li>
+          <a href="#">Vocabulary</a>
+          <ul>
+            <div class="dropdown-content">
+              <li><a href="#">Food</a></li>
+              <li><a href="#">Organization</a></li>
+              <li><a href="#">Numbers</a></li>
+              <li><a href="#">Places</a></li>
+            </div>
+          </ul>
+        </li>
+        <li><a href="#">Daily Quiz</a></li>
+        <li>
+          <a href="leaderboard.html">Leaderboard</a>
+        </li>
+        <li>
+          <a href="#">Help</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="images">
+      <img
+        src="/Practice/Dia-go Project/food1.jpeg"
+        style="margin-right: 80px"
+        alt="error"
+      />
+      <img src="/Practice/Dia-go Project/food2.jpeg" alt="error" />
+    </div>
+  </body>
+</html>
