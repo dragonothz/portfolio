@@ -10,6 +10,8 @@
         justify-content: space-between;
         margin: 5px;
         width: 250px;
+        margin: 0 auto;
+        padding-top: 5px;
       }
 
       div.settings {
@@ -23,6 +25,19 @@
       div.settings label:after {
         content: ":";
       }
+
+      .reset {
+        justify-content: center;
+        align-items: center;
+        display: inline;
+        padding: 5px;
+      }
+
+      .centralise {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+      }
     </style>
   </head>
   <body>
@@ -35,10 +50,16 @@
         <label>Password</label>
         <input type="password" name="password" id="password" required />
       </div>
-      <div class="login">
-        <button type="submit" id="btn" onclick="validate()">Login</button>
+      <div class="centralise">
+        <div class="reset">
+          <input type="button" value="Login" id="btn" onclick="validate()" />
+        </div>
+        <div class="reset">
+          <input type="button" value="Reset" id="reset" onclick="reset()" />
+        </div>
       </div>
     </div>
+
     <script>
       function validate() {
         let password = document.getElementById("password").value;
@@ -53,6 +74,11 @@
         } else {
           alert("Wrong User ID or Password, please try again.");
         }
+      }
+
+      function reset() {
+        const useridreset = (document.getElementById("userid").value = "");
+        const passwordreset = (document.getElementById("password").value = "");
       }
     </script>
   </body>
