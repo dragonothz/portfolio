@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Etch-a-Sketch</title>
+    <style>
+      .container {
+        border: 10px;
+        display: grid;
+        height: 500px;
+        width: 500px;
+        background-color: #c73838;
+        margin-top: 20px;
+      }
+
+      button {
+        margin-bottom: 20px;
+        margin-top: 10px;
+        text-align: center;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="reset">Reset Button</button>
+    <div class="container"></div>
+    <script>
+      const container = document.querySelector(".container");
+      const input = document.querySelector(".reset");
+      input.addEventListener("click", reset);
+
+      let boxsize = 0;
+
+      function promptGrid() {
+        let number = prompt("What dimensions do you want for the grid", 16);
+        if (number > 100) {
+          alert("Please enter a number lesser than 100");
+          promptGrid();
+        } else {
+          boxsize = number;
+          createGrid(number, number);
+          54;
+        }
+      }
+
+      function createGrid(size) {
+        for (let i = 0; i < size * size; i++) {
+          const x = document.createElement("div");
+          container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+          container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+          x.style.backgroundColor = "red";
+
+          x.addEventListener("mouseover", () => {
+            x.style.backgroundColor = getRandomColor();
+            x.classList.add("boxes");
+          });
+          container.appendChild(x);
+        }
+      }
+
+      function reset() {
+        let aqua = document.querySelectorAll(".boxes");
+        for (let i = 0; i < aqua.length; i++) {
+          aqua[i].style.backgroundColor = "red";
+        }
+      }
+
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      promptGrid();
+    </script>
+  </body>
+</html>
