@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      body {
+        background-color: #faf9ee;
+      }
+
+      .container {
+        border: 1px solid rgb(0, 0, 0);
+        width: 50%;
+        height: 60%;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20%;
+        background-color: #a7a39d;
+      }
+
+      .button {
+        width: 20%;
+        height: 30%;
+        margin-top: 5%;
+      }
+
+      #delete {
+        background-color: #e23f3f;
+        border: 0;
+      }
+
+      #enter {
+        background-color: rgb(21, 150, 21);
+        border: 0;
+      }
+
+      input {
+        margin-top: 15px;
+      }
+
+      .bottom {
+        margin-top: 5%;
+      }
+
+      .display {
+        margin: auto;
+      }
+
+      .button:active {
+        background-color: #dddddd;
+        box-shadow: 0 5px #858383;
+        transform: translateY(2px);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="display">
+        <input type="text" id="output" disabled />
+      </div>
+      <div class="innerContainer">
+        <div class="row">
+          <button class="button">1</button>
+          <button class="button">2</button>
+          <button class="button">3</button>
+          <button class="button">+</button>
+        </div>
+        <div class="row">
+          <button class="button">4</button>
+          <button class="button">5</button>
+          <button class="button">6</button>
+          <button class="button">-</button>
+        </div>
+        <div class="row">
+          <button class="button">7</button>
+          <button class="button">8</button>
+          <button class="button">9</button>
+          <button class="button">*</button>
+        </div>
+        <div class="row">
+          <button class="button" id="delete">X</button>
+          <button class="button">0</button>
+          <button class="button" id="enter">O</button>
+          <button class="button">/</button>
+        </div>
+      </div>
+      <div class="bottom"></div>
+    </div>
+    <script>
+      let string = "";
+      let buttons = document.querySelectorAll(".button");
+      Array.from(buttons).forEach((button) => {
+        button.addEventListener("click", (e) => {
+          const value = e.target.innerHTML;
+          if (value === "O") {
+            try {
+              string = eval(string);
+            } catch {
+              string = "Error";
+            }
+            document.querySelector("#output").value = string;
+          } else if (value === "X") {
+            string = "";
+            document.querySelector("#output").value = string;
+          } else {
+            string = string + value;
+            document.querySelector("#output").value = string;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
